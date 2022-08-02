@@ -41,6 +41,7 @@ client.on("message", async (msg) => {
     const chat = await msg.getChat();
     const user = contact.id.user;
     console.log(user);
+    console.log(user);
     const newUser = {
       id: contact.id.user,
     };
