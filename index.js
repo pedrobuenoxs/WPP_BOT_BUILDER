@@ -63,8 +63,13 @@ client.on("message", async (msg) => {
   if (msg.body == "!salve") {
     const chat = await msg.getChat();
     const contact = await msg.getContact();
-
     await chat.sendMessage(`Salve mlkote`);
+  }
+
+  if (msg.body == "!fut") {
+    const chat = await msg.getChat();
+    const contact = await msg.getContact();
+    await chat.sendMessage(`é hoje que o pilas toma uma canetinha`);
   }
 });
 
