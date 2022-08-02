@@ -35,29 +35,36 @@ async function loadUsers() {
 }
 
 client.on("message", async (msg) => {
-  if (msg.body == "!entra") {
-    const Users = await loadUsersRepository();
+  //   if (msg.body == "!entra") {
+  //     const Users = await loadUsersRepository();
+  //     const contact = await msg.getContact();
+  //     const chat = await msg.getChat();
+  //     const user = contact.id.user;
+  //     console.log(user);
+  //     console.log(user);
+  //     const newUser = {
+  //       id: contact.id.user,
+  //     };
+
+  //     const savedUser = await createUserRepository(newUser);
+  //     // fs.writeFileSync("./db.json", [
+  //     //   ...users,
+  //     //   JSON.parse(JSON.stringify(contact.id.user)),
+  //     // ]);
+  //     await chat.sendMessage(`Bem vindo ${savedUser}`);
+  //   }
+
+  //   if (msg.body == "!users") {
+  //     const chat = await msg.getChat();
+  //     const Users = await loadUsers();
+  //     await chat.sendMessage(`${Users}`);
+  //   }
+
+  if (msg.body == "!salve") {
+    const chat = await msg.getChat();
     const contact = await msg.getContact();
-    const chat = await msg.getChat();
-    const user = contact.id.user;
-    console.log(user);
-    console.log(user);
-    const newUser = {
-      id: contact.id.user,
-    };
 
-    const savedUser = await createUserRepository(newUser);
-    // fs.writeFileSync("./db.json", [
-    //   ...users,
-    //   JSON.parse(JSON.stringify(contact.id.user)),
-    // ]);
-    await chat.sendMessage(`Bem vindo ${savedUser}`);
-  }
-
-  if (msg.body == "!users") {
-    const chat = await msg.getChat();
-    const Users = await loadUsers();
-    await chat.sendMessage(`${Users}`);
+    await chat.sendMessage(`Salve mlkote`);
   }
 });
 
