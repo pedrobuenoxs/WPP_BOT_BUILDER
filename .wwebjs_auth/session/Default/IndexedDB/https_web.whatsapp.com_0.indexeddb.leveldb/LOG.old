@@ -1,3 +1,15 @@
-2022/08/02-00:23:08.263 33fd3 Reusing MANIFEST /home/pedro/Área de Trabalho/aleatório/webwpp/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2022/08/02-00:23:08.263 33fd3 Recovering log #60
-2022/08/02-00:23:08.314 33fd3 Reusing old log /home/pedro/Área de Trabalho/aleatório/webwpp/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000060.log 
+2022/08/02-00:24:22.773 340f7 Reusing MANIFEST /home/pedro/Área de Trabalho/aleatório/webwpp/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/08/02-00:24:22.773 340f7 Recovering log #60
+2022/08/02-00:24:22.847 340f7 Reusing old log /home/pedro/Área de Trabalho/aleatório/webwpp/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000060.log 
+2022/08/02-00:24:35.397 34104 Level-0 table #66: started
+2022/08/02-00:24:35.501 34104 Level-0 table #66: 1250596 bytes OK
+2022/08/02-00:24:35.577 34104 Delete type=0 #60
+2022/08/02-00:24:35.629 340f4 Compacting 1@1 + 2@2 files
+2022/08/02-00:24:35.775 340f4 Generated table #67@1: 29900 keys, 2253833 bytes
+2022/08/02-00:24:35.919 340f4 Generated table #68@1: 51784 keys, 2246192 bytes
+2022/08/02-00:24:35.980 340f4 Generated table #69@1: 8533 keys, 182647 bytes
+2022/08/02-00:24:35.980 340f4 Compacted 1@1 + 2@2 files => 4682672 bytes
+2022/08/02-00:24:36.127 340f4 compacted to: files[ 0 0 3 0 0 0 0 ]
+2022/08/02-00:24:36.128 340f4 Delete type=2 #63
+2022/08/02-00:24:36.128 340f4 Delete type=2 #66
+2022/08/02-00:24:36.128 340f4 Delete type=2 #62
