@@ -1,6 +1,10 @@
 const qrcode = require("qrcode-terminal");
-const fs = require("fs");
-const { Client, LocalAuth, MessageMedia } = require("whatsapp-web.js");
+const { Client, LocalAuth } = require("whatsapp-web.js");
+const MsgController = require("./src/controller/msg.controller");
+const SimpleCommandsService = require("./src/service/simple-commands.service");
+
+const service = new SimpleCommandsService();
+const controller = new MsgController(service);
 
 const client = new Client({
   authStrategy: new LocalAuth(),
@@ -18,20 +22,7 @@ client.on("ready", () => {
 });
 
 client.on("message", async (msg) => {
-  if (msg.body == "!salve") {
-    const chat = await msg.getChat();
-    await chat.sendMessage(`Salve mlkote`);
-  }
-
-  if (msg.body == "!fut") {
-    const chat = await msg.getChat();
-    await chat.sendMessage(`é hoje que o pilas toma uma canetinha`);
-  }
-
-  if (msg.body == "!foto") {
-    const chat = await msg.getChat();
-    await chat.sendMessage(`sem foto sem ponto`);
-  }
+  await controller.handle(msg);
 });
 
 client.initialize();
