@@ -1,4 +1,4 @@
-const simpleCommands = ["!salve", "!fut", "!foto", "!uuui"];
+const simpleCommands = ["!salve", "!fut", "!foto", "!uuui", "!commands"];
 const appCommands = [
   "!help",
   "!entrar",
