@@ -15,7 +15,9 @@ module.exports = class SimpleCommandsService {
       await chat.sendMessage("Ele gosxtaaa");
     }
     if (msg.body == "!commands") {
-      await chat.sendMessage(`!salve\n!fut\n!foto\n!uuui\n!commands`);
+      await chat.sendMessage(
+        `!commands\n!salve\n!fut\n!foto\n!uuui\n!ranking\n!entrar\n!editar\n!sair\n!ban\n!pontuar\n!titulo`
+      );
     }
   }
 };
