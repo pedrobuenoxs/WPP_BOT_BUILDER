@@ -6,6 +6,7 @@ const appCommands = [
   "!sair",
   "!ranking",
   "!ban",
+  "!pontuar",
 ];
 
 const command = (cmdString) => cmdString.split(" ")[0];
