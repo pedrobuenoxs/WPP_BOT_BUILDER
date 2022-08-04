@@ -4,11 +4,8 @@ module.exports = class App {
     const command = commandArray(msg)[0];
 
     if (command == "!help") {
-      await chat.sendMessage(`!entrar - Entra no ranking
-      !editar - Edita o seu nome
-      !sair - Sai do ranking [vai perder os pontos bobão]
-      !ranking - Ranking atualizado
-      !ban - Bane um usuário do grupo`);
+      await chat.sendMessage(`!entrar - Entra no ranking\n!editar - Edita o seu nome\n!sair - Sai do ranking [vai perder os pontos bobão]
+      !ranking - Ranking atualizado\n!ban - Bane um usuário do grupo`);
     }
 
     if (command == "!entrar") {
