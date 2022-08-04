@@ -14,5 +14,8 @@ module.exports = class SimpleCommandsService {
     if (msg.body == "!uuui") {
       await chat.sendMessage("Ele gosxtaaa");
     }
+    if (msg.body == "!commands") {
+      await chat.sendMessage(`!salve\n!fut\n!foto\n!uuui\n!commands`);
+    }
   }
 };
