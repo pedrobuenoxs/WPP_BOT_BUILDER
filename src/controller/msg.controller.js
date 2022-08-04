@@ -5,12 +5,12 @@ module.exports = class MsgController {
     this.app = app;
   }
 
-  async handle(msg, chat) {
+  async handle(msg, chat, autor) {
     if (simpleCommand(msg.body)) {
       await this.service.handle(msg.body, chat);
     }
     if (appCommand(msg.body)) {
-      await this.app.handle(msg.body, chat);
+      await this.app.handle(msg.body, chat, autor);
     }
   }
 };

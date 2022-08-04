@@ -1,11 +1,26 @@
+const { GroupChat } = require("whatsapp-web.js");
+
 module.exports = class App {
-  async handle(msg, chat) {
+  async handle(msg, chat, autor) {
     const commandArray = (cmdString) => cmdString.split(" ");
     const command = commandArray(msg)[0];
 
     if (command == "!help") {
-      await chat.sendMessage(`!entrar - Entra no ranking\n!editar - Edita o seu nome\n!sair - Sai do ranking [vai perder os pontos bobão]
-      !ranking - Ranking atualizado\n!ban - Bane um usuário do grupo`);
+      await chat.sendMessage(
+        `!entrar - Entra no ranking\n!editar - Edita o seu nome\n!sair - Sai do ranking [vai perder os pontos bobão]\n!ranking - Ranking atualizado\n!ban - Bane um usuário do grupo`
+      );
+    }
+
+    if (command == "!titulo") {
+      try {
+        if (autor == "5519995790911@c.us") {
+          await chat.setSubject(commandArray(msg)[1]);
+        } else {
+          await chat.sendMessage("você não bobão");
+        }
+      } catch (err) {
+        console.log(err);
+      }
     }
 
     if (command == "!entrar") {
