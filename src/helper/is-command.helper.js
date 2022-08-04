@@ -1,4 +1,4 @@
-const simpleCommands = ["!salve", "!fut", "!foto"];
+const simpleCommands = ["!salve", "!fut", "!foto", "!uuui"];
 const appCommands = [
   "!help",
   "!entrar",
@@ -7,6 +7,7 @@ const appCommands = [
   "!ranking",
   "!ban",
   "!pontuar",
+  "!titulo",
 ];
 
 const command = (cmdString) => cmdString.split(" ")[0];
