@@ -27,5 +27,8 @@ module.exports = class App {
     if (command == "!ban") {
       await chat.sendMessage(`durdo ou bis?`);
     }
+    if (command == "!pontuar") {
+      await chat.sendMessage(`beach tennis não vale em`);
+    }
   }
 };
