@@ -2,9 +2,11 @@ const qrcode = require("qrcode-terminal");
 const { Client, LocalAuth } = require("whatsapp-web.js");
 const MsgController = require("./src/controller/msg.controller");
 const SimpleCommandsService = require("./src/service/simple-commands.service");
+const AppService = require("./src/service/app.service");
 
 const service = new SimpleCommandsService();
-const controller = new MsgController(service);
+const app = new AppService();
+const controller = new MsgController(service, app);
 
 const client = new Client({
   authStrategy: new LocalAuth(),
@@ -22,7 +24,8 @@ client.on("ready", () => {
 });
 
 client.on("message", async (msg) => {
-  await controller.handle(msg);
+  const chat = await msg.getChat();
+  await controller.handle(msg, chat);
 });
 
 client.initialize();
