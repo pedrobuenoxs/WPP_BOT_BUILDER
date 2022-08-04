@@ -1,16 +1,16 @@
 const { simpleCommand, appCommand } = require("../helper/is-command.helper");
 module.exports = class MsgController {
-  constructor(sc_service, app) {
-    this.sc.service = sc_service;
+  constructor(service, app) {
+    this.service = service;
     this.app = app;
   }
 
-  async handle(msg) {
-    if (simpleCommand(msg)) {
-      await this.sc.service.handle(msg);
+  async handle(msg, chat) {
+    if (simpleCommand(msg.body)) {
+      await this.service.handle(msg.body, chat);
     }
-    if (appCommand(msg)) {
-      await this.app.handle(msg);
+    if (appCommand(msg.body)) {
+      await this.app.handle(msg.body, chat);
     }
   }
 };

@@ -16,6 +16,3 @@ const simpleCommand = (cmdString) =>
 const appCommand = (cmdString) => appCommands.includes(command(cmdString));
 
 module.exports = { simpleCommand, appCommand };
-
-console.log(simpleCommand("salve"));
-console.log(appCommand("!help"));
