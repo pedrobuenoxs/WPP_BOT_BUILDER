@@ -11,5 +11,8 @@ module.exports = class SimpleCommandsService {
     if (msg.body == "!foto") {
       await chat.sendMessage(`sem foto sem ponto`);
     }
+    if (msg.body == "!uuui") {
+      await chat.sendMessage("Ele gosxtaaa");
+    }
   }
 };
