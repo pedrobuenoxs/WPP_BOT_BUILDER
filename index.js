@@ -31,4 +31,18 @@ client.on("message", async (msg) => {
   await controller.handle(msg, chat, autor);
 });
 
+require("dotenv").config();
+
+const mongoose = require("mongoose");
+const DB_URI = process.env.DB_URI;
+console.log(DB_URI);
+mongoose
+  .connect(DB_URI)
+  .then(() => {
+    console.log("Db connected");
+  })
+  .catch((err) => {
+    console.log("Error while connecting database::", err);
+  });
+
 client.initialize();
