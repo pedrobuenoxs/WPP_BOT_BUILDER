@@ -2,8 +2,9 @@ const { GroupChat } = require("whatsapp-web.js");
 
 module.exports = class App {
   async handle(msg, chat, autor) {
-    const commandArray = (cmdString) => cmdString.split(" ");
-    const command = commandArray(msg)[0];
+    const strToArray = (cmdString) => cmdString.split(" ");
+    const commandArray = strToArray(msg);
+    const command = commandArray[0];
 
     if (command == "!help") {
       await chat.sendMessage(
@@ -14,7 +15,8 @@ module.exports = class App {
     if (command == "!titulo") {
       try {
         if (autor == "5519995790911@c.us") {
-          await chat.setSubject(commandArray(msg)[1]);
+          const auxTitle = commandArray.slice(1, commandArray.length).join(" ");
+          await chat.setSubject(auxTitle);
         } else {
           await chat.sendMessage("você não bobão");
         }
