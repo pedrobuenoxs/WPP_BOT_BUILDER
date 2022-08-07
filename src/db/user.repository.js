@@ -12,7 +12,7 @@ module.exports = class UserRepository {
   }
 
   async findByID(user_id) {
-    return await UserRecordSchema.find({ id: user_id });
+    return await UserRecordSchema.findOne({ userID: user_id });
   }
 
   async UpdateStreak(data) {
@@ -30,13 +30,16 @@ module.exports = class UserRepository {
   }
 
   async UpdateScore(data) {
-    const { id, score } = data;
-    await this.UpdateStreak(data);
-    const update = await UserRecordSchema.updateOne(
-      { id: id },
-      { $inc: { score: score } }
-    );
-    return update;
+    try {
+      const { id, score } = data;
+      const update = await UserRecordSchema.findOneAndUpdate(
+        { userID: id },
+        { score: score }
+      );
+      return update;
+    } catch (error) {
+      throw new Error(error);
+    }
   }
 
   async getData() {
