@@ -12,5 +12,13 @@ module.exports = class App {
     if (command == "!entrar") {
       await ranking.register();
     }
+
+    if (command == "!pontuar") {
+      await ranking.increaseScore();
+    }
+
+    if (command == "!ranking") {
+      await ranking.makeRanking();
+    }
   }
 };
