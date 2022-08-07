@@ -13,7 +13,7 @@ class Ranking {
   async register() {
     const name = this.srt[1];
     try {
-      if (await this.isRegistered()) {
+      if (await this.isRegistered(this.autor)) {
         throw new Error("Usuário já registrado");
       }
 
@@ -32,7 +32,7 @@ class Ranking {
 
   async isRegistered(id) {
     const user = await this.repository.findByID(id);
-    if (user.length == 0) {
+    if (!user) {
       return false;
     } else {
       return true;
