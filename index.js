@@ -25,8 +25,7 @@ client.on("ready", () => {
 
 client.on("message", async (msg) => {
   const chat = await msg.getChat();
-  const grupo = msg._patch;
-  const autor = msg.author;
+  const autor = msg.from;
 
   await controller.handle(msg, chat, autor);
 });
