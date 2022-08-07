@@ -25,8 +25,7 @@ client.on("ready", () => {
 
 client.on("message", async (msg) => {
   const chat = await msg.getChat();
-  const grupo = msg._patch;
-  const autor = msg.author;
+  const autor = msg.from;
 
   await controller.handle(msg, chat, autor);
 });
@@ -35,7 +34,6 @@ require("dotenv").config();
 
 const mongoose = require("mongoose");
 const DB_URI = process.env.DB_URI;
-console.log(DB_URI);
 mongoose
   .connect(DB_URI)
   .then(() => {
