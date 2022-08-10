@@ -1,13 +1,13 @@
 const simpleCommands = ["!salve", "!fut", "!foto", "!uuui", "!commands"];
 const appCommands = [
-  "!help",
+  "!ajuda",
   "!entrar",
   "!editar",
   "!sair",
   "!ranking",
   "!ban",
   "!pontuar",
-  "!titulo",
+  "!streak",
 ];
 
 const command = (cmdString) => cmdString.split(" ")[0];
