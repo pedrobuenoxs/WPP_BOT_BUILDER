@@ -1,20 +1,20 @@
 const simpleCommands = ["!salve", "!fut", "!foto", "!uuui", "!commands"];
 const appCommands = [
-  "!help",
+  "!ajuda",
   "!entrar",
   "!editar",
   "!sair",
   "!ranking",
   "!ban",
   "!pontuar",
-  "!titulo",
+  "!streak",
 ];
 
 const command = (cmdString) => cmdString.split(" ")[0];
 
-const simpleCommand = (cmdString) =>
+const isSimpleCommand = (cmdString) =>
   simpleCommands.includes(command(cmdString));
 
-const appCommand = (cmdString) => appCommands.includes(command(cmdString));
+const isAppCommand = (cmdString) => appCommands.includes(command(cmdString));
 
-module.exports = { simpleCommand, appCommand };
+module.exports = { isSimpleCommand, isAppCommand };

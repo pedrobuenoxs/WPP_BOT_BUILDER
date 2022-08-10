@@ -1,84 +1,92 @@
-class Ranking {
-  constructor(msg, chat, autor, repository) {
+var moment = require("moment"); // require
+const { CanScore, isStreak } = require("../helper/hours-count.helper"); // require
+
+module.exports = class Ranking {
+  constructor(msg, chat, user_id, name, repository) {
     this.msg = msg;
     this.chat = chat;
-    this.autor = autor;
-    this.srt = this.strToArray(this.msg);
-    this.command = this.strToArray(this.msg)[0];
+    this.user_id = user_id;
+    this.name = name;
     this.repository = repository;
   }
-  strToArray(cmdString) {
-    return cmdString.split(" ");
-  }
-  async register() {
-    const name = this.srt[1];
+  async join() {
     try {
-      if (await this.isRegistered(this.autor)) {
-        throw new Error("Usuário já registrado");
+      const alreadyJoined = await this.repository.findByID(this.user_id);
+      if (alreadyJoined) {
+        throw new Error("Você já está cadastrado");
       }
-
-      await this.repository.RegisterUser({
-        userID: this.autor,
-        name: name,
+      let now = moment().subtract(3, "hours");
+      const user = {
+        userID: this.user_id,
+        name: this.name,
         score: 0,
         streak: 0,
-      });
-      await this.chat.sendMessage(`${name}, você entrou no ranking`);
+        createdAt: now,
+        updatedAt: now,
+      };
+      const joinedUser = await this.repository.RegisterUser(user);
     } catch (error) {
-      await this.chat.sendMessage(`${name}, você já entrou no ranking`);
-      console.log(error);
+      throw new Error(error.message);
     }
   }
-
-  async isRegistered(id) {
-    const user = await this.repository.findByID(id);
-    if (!user) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-  async increaseScore() {
+  async updateScore() {
     try {
-      const user = await this.repository.findByID(this.autor);
-      if (!(await this.isRegistered(user.userID))) {
-        throw new Error("Usuário não registrado");
+      const user = await this.repository.findByID(this.user_id);
+      const updatedAt = moment(user.updatedAt);
+      let now = moment().subtract(3, "hours");
+      // const canScore = CanScore(updatedAt, now); \/
+      if (user.score === 0 || true) {
+        if (isStreak(updatedAt, now)) {
+          const updated = await this.repository.UpdateScore({
+            id: this.user_id,
+            score: user.score + 1,
+            streak: user.streak + 1,
+          });
+          return updated.score;
+        } else {
+          const updated = await this.repository.UpdateScore({
+            id: this.user_id,
+            score: user.score + 1,
+            streak: 0,
+          });
+          return updated.score;
+        }
+      } else {
+        throw new Error("Você ainda não pode atualizar seu score");
       }
-
-      const updated = await this.repository.UpdateScore({
-        id: this.autor,
-        score: user.score + 1,
-      });
-      await this.chat.sendMessage(
-        `${user.name}, você fez ${user.score + 1} pontos`
-      );
     } catch (error) {
-      await this.chat.sendMessage(`Entre no ranking para pontuar`);
+      throw new Error(error.message);
     }
   }
 
-  async makeRanking() {
-    let msg = "";
-    const users = await this.repository.getData();
-    users.forEach((user) => {
-      msg += `${user.name} - ${user.score}/100\n`;
-    }),
-      await this.chat.sendMessage(msg);
+  async createRank() {
+    try {
+      const initMsg = "Ranking:\n";
+      const data = await this.repository.getData();
+      const sortedData = data.sort((a, b) => b.score - a.score);
+      const message = sortedData
+        .map((user, index) => {
+          if (user.streak > 3) {
+            return `${index + 1} - ${user.name} - ${user.score}/100 (${
+              user.streak
+            }🔥)`;
+          } else {
+            return `${index + 1} - ${user.name} - ${user.score}/100`;
+          }
+        })
+        .join("\n");
+      return initMsg + message;
+    } catch (error) {
+      throw new Error(error.message);
+    }
   }
 
-  async getData() {
-    const users = await this.repository.getData();
-    return users
-      .map((user) => {
-        return {
-          name: user.name,
-          score: user.score,
-          streak: user.streak,
-        };
-      })
-      .sort((a, b) => b.score - a.score);
+  async getStreak() {
+    try {
+      const user = await this.repository.findByID(this.user_id);
+      return user.streak;
+    } catch (error) {
+      throw new Error(error.message);
+    }
   }
-}
-
-module.exports = Ranking;
+};

@@ -31,10 +31,11 @@ module.exports = class UserRepository {
 
   async UpdateScore(data) {
     try {
-      const { id, score } = data;
+      const { id, score, streak } = data;
       const update = await UserRecordSchema.findOneAndUpdate(
         { userID: id },
-        { score: score }
+        { score: score, streak: streak },
+        { new: true }
       );
       return update;
     } catch (error) {

@@ -15,6 +15,8 @@ const client = new Client({
   },
 });
 
+client.initialize();
+
 client.on("qr", (qr) => {
   qrcode.generate(qr, { small: true });
 });
@@ -25,9 +27,49 @@ client.on("ready", () => {
 
 client.on("message", async (msg) => {
   const chat = await msg.getChat();
-  const autor = msg.from;
+  console.log("----------------------------------------------------");
+  console.log(chat);
+  console.log("----------------------------------------------------");
+  console.log(await msg.getContact());
+  console.log("----------------------------------------------------");
+  const contact = await msg.getContact();
+  const user_id = contact.id._serialized;
+  console.log("Serialized id -->", user_id);
 
-  await controller.handle(msg, chat, autor);
+  const author = msg.from;
+
+  const msgID = msg.id;
+  // const userID = msgID.participant;
+  // console.log("Phone number -->", userID);
+
+  const body = msg.body;
+  const date = msg.timestamp;
+  const isGroup = chat.isGroup;
+  const isMedia = msg.isMedia;
+  const isMentioned = msg.isMentioned;
+  const isSentByMe = msg.isSentByMe;
+  const isSeen = msg.isSeen;
+  const isSticker = msg.isSticker;
+  // console.log("Title -->", chat.name); //
+  // console.log("isGroup -->", isGroup);
+  // console.log("Author -->", author);
+  // console.log("Message -->", body);
+  // console.log("date -->", date);
+  // console.log("isMedia -->", isMedia);
+  // console.log("isMentioned -->", isMentioned);
+  // console.log("isSentByMe -->", isSentByMe);
+  // console.log("isSeen -->", isSeen);
+  // console.log("isSticker -->", isSticker);
+  // console.log("----------------------------------------------------");
+
+  if (isGroup) {
+    //{user_id: }
+    await controller.handle(msg, chat, user_id);
+  }
+});
+
+client.on("disconnected", (reason) => {
+  console.log("Client was logged out", reason);
 });
 
 require("dotenv").config();
@@ -42,5 +84,3 @@ mongoose
   .catch((err) => {
     console.log("Error while connecting database::", err);
   });
-
-client.initialize();
