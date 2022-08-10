@@ -66,7 +66,7 @@ module.exports = class Ranking {
       const sortedData = data.sort((a, b) => b.score - a.score);
       const message = sortedData
         .map((user, index) => {
-          if (user.streak > 3) {
+          if (user.streak >= 2) {
             return `${index + 1} - ${user.name} - ${user.score}/100 (${
               user.streak
             }🔥)`;
