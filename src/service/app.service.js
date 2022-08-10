@@ -10,8 +10,12 @@ module.exports = class App {
 
     if (command == "!entrar") {
       const name = commandArray[1];
+
       const ranking = new Ranking(msg, chat, user_id, name, repository);
       try {
+        if (name == undefined) {
+          throw new Error("Digite seu nome");
+        }
         await ranking.join();
         chat.sendMessage("tá saindo da jaula o monstro.");
       } catch (error) {
