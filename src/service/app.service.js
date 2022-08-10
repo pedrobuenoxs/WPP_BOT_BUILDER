@@ -23,9 +23,7 @@ module.exports = class App {
       const ranking = new Ranking(msg, chat, user_id, "", repository);
       try {
         const newScore = await ranking.updateScore();
-        chat.sendMessage(
-          `Seu score foi atualizado! Você tem ${newScore} pontos!`
-        );
+        chat.sendMessage(`birrrl! Você tem ${newScore} pontos!`);
       } catch (error) {
         chat.sendMessage(`Atenção: ${error.message}!`);
       }
@@ -45,7 +43,7 @@ module.exports = class App {
       const ranking = new Ranking(msg, chat, user_id, "", repository);
       try {
         const data = await ranking.getStreak();
-        chat.sendMessage(`Você treinou ${data} dias seguidos, mantém!`);
+        chat.sendMessage(`Você treinou ${data} dias seguidos!`);
       } catch (error) {
         chat.sendMessage(`Atenção: ${error.message}!`);
       }
