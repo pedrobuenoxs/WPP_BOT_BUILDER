@@ -80,4 +80,13 @@ module.exports = class Ranking {
       throw new Error(error.message);
     }
   }
+
+  async getStreak() {
+    try {
+      const user = await this.repository.findByID(this.user_id);
+      return user.streak;
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
 };
