@@ -7,6 +7,8 @@ const UserRecordSchema = new Schema(
     name: { type: String },
     score: { type: Number },
     streak: { type: Number },
+    createdAt: { type: Date },
+    updatedAt: { type: Date },
   },
   {
     timestamps: true,
