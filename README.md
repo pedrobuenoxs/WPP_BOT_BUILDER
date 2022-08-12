@@ -28,7 +28,6 @@ Bot desenvolvido utilizando whatsapp-web.js.
    
    resposta:
   ```
-    <p>
       Ranking:<br />
         1 - Usuário_1 - 88/100 (5🔥)<br />
         2 - Usuário_2 - 70/100<br />
@@ -38,7 +37,6 @@ Bot desenvolvido utilizando whatsapp-web.js.
         6 - Usuário_6 - 49/100(3🔥)<br />
         7 - Usuário_7 - 49/100<br />
         8 - Usuário_8 - 25/100<br />
-    </p>
    ```
   
   
