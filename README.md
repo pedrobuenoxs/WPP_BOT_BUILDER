@@ -29,14 +29,14 @@ Bot desenvolvido utilizando whatsapp-web.js.
    resposta:
     <p>
     Ranking:
-      1 - Usuário_1 - 88/100 (5🔥)
-      2 - Usuário_2 - 70/100
-      3 - Usuário_3 - 68/100 (2🔥)
-      4 - Usuário_4 - 52/100
-      5 - Usuário_5 - 49/100
-      6 - Usuário_6 - 49/100(3🔥)
-      7 - Usuário_7 - 49/100 
-      8 - Usuário_8 - 25/100
+      1 - Usuário_1 - 88/100 (5🔥)<br />
+      2 - Usuário_2 - 70/100<br />
+      3 - Usuário_3 - 68/100 (2🔥)<br />
+      4 - Usuário_4 - 52/100<br />
+      5 - Usuário_5 - 49/100<br />
+      6 - Usuário_6 - 49/100(3🔥)<br />
+      7 - Usuário_7 - 49/100<br />
+      8 - Usuário_8 - 25/100<br />
     </p>
     
   
