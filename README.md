@@ -2,6 +2,7 @@
 
 Bot desenvolvido utilizando whatsapp-web.js.
 
+
 ## Para instalar a aplicação
   npm install
   
@@ -12,7 +13,22 @@ Bot desenvolvido utilizando whatsapp-web.js.
   Será gerado um QR Code no terminal. Leia com seu celular e você estará logado.
   
   
-### Comandos até então implementados
+## Comandos até então implementados
+  O intuito do bot é incentivar a prática de atividades fisicas entre os amigos. Adicione o bot no grupo.
+Para visualizar todos commandos, digite:
+
+   ```
+   !ajuda
+   ```
+   resposta:
+   ```
+   Comandos disponíveis:
+   !entrar - Entrar no ranking
+   !pontuar - pontuar
+   !ranking - listar o ranking
+   !streak - Verificar seu streak"
+   ```
+
   ### !entrar <Nome>
   
    resposta:
@@ -41,5 +57,10 @@ Bot desenvolvido utilizando whatsapp-web.js.
         7 - Usuário_7 - 49/100
         8 - Usuário_8 - 25/100
    ```
-  
+   ### !streak
+   
+   resposta:
+  ```
+    Você treinou X dias seguidos!
+   ```
   
