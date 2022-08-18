@@ -9,18 +9,9 @@ const controller = new MsgController(service, app);
 const http = require("http");
 
 require("dotenv").config();
+const server = require("./server");
+server.set("port", process.env.PORT || 3000);
 
-const host = "localhost";
-const port = process.env.PORT || 8000;
-
-const requestListener = function (req, res) {
-  res.writeHead(200);
-  res.end("My first server!");
-};
-const server = http.createServer(requestListener);
-server.listen(port, host, () => {
-  console.log(`Server is running on http://${host}:${port}`);
-});
 const mongoose = require("mongoose");
 const { MongoStore } = require("wwebjs-mongo");
 const DB_URI = process.env.DB_URI;
