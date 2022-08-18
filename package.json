@@ -3,7 +3,6 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "moment": "^2.29.4",
     "mongoose": "^6.5.1",
