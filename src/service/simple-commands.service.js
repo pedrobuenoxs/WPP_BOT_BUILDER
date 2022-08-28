@@ -10,11 +10,27 @@ const xingamentos = [
   "Metralhadora de bosta",
   "Cara de cú com caiâmbra",
   "Eleitor do Bolsonaro",
+  "Calvo",
+  "Lixo",
+  "Desempregado",
+  "Mão de vaca",
+  "Inimigo da moda",
+  "Barriga de cadela prenha",
+  "Umbigudo fedorento",
+  "Merda",
+  "Porco imundo",
+  "Sapão",
+  "Shrek branco",
 ];
 
-console.log(
-  `Durdo seu ${xingamentos[Math.floor(Math.random() * xingamentos.length)]}`
-);
+const nomesXingamentos = [
+  "Durdo",
+  "Bis",
+  "Pokasombra",
+  "Gustavinho",
+  "Leozinho",
+  "Bolsonaro",
+];
 
 module.exports = class SimpleCommandsService {
   async handle(msg, chat) {
@@ -35,9 +51,9 @@ module.exports = class SimpleCommandsService {
     }
     if (msg == "!xingar") {
       await chat.sendMessage(
-        `Durdo seu ${
-          xingamentos[Math.floor(Math.random() * xingamentos.length)]
-        }`
+        `${
+          nomesXingamentos[Math.floor(Math.random() * nomesXingamentos.length)]
+        } seu ${xingamentos[Math.floor(Math.random() * xingamentos.length)]}`
       );
     }
     if (msg == "!comandos") {
@@ -47,3 +63,8 @@ module.exports = class SimpleCommandsService {
     }
   }
 };
+console.log(
+  `${
+    nomesXingamentos[Math.floor(Math.random() * nomesXingamentos.length)]
+  } seu ${xingamentos[Math.floor(Math.random() * xingamentos.length)]}`
+);
