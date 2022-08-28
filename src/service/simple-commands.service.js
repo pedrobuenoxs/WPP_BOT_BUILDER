@@ -10,7 +10,6 @@ const xingamentos = [
   "Metralhadora de bosta",
   "Cara de cú com caiâmbra",
   "Eleitor do Bolsonaro",
-  "Bff da Ju yoneda",
 ];
 
 console.log(
