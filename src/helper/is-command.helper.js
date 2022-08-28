@@ -1,10 +1,11 @@
 const simpleCommands = [
   "!salve",
-  "!fut",
   "!foto",
+  "!beach",
   "!uuui",
   "!horas",
-  "!commands",
+  "!xingar",
+  "!comandos",
 ];
 const appCommands = [
   "!ajuda",

@@ -55,7 +55,7 @@ module.exports = class App {
 
     if (command == "!ajuda") {
       chat.sendMessage(
-        "Comandos disponíveis:\n\n!entrar - Entrar no ranking\n!pontuar - pontuar\n!ranking - listar o ranking\n!streak - Verificar seu streak"
+        "Comandos disponíveis:\n\n!entrar <Nome> - Entrar no ranking\n!pontuar - Pontuar\n!ranking - Listar o ranking\n!streak - Verificar seu streak"
       );
     }
   }
