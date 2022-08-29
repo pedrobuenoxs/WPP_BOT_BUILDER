@@ -5,6 +5,7 @@ const simpleCommands = [
   "!uuui",
   "!horas",
   "!xingar",
+  "!motivacao",
   "!comandos",
 ];
 const appCommands = [
