@@ -1,3 +1,20 @@
+const motivacao = [
+  "se voce nao for só voce nao vai",
+  "A nat ja foi e voce?",
+  "Cada segundo de esforço vale a pena, força",
+  "Treinar é viver",
+  "Pode ser feio, pode ser frango, só nao pode ser feio e frango",
+  "No inicio motivação, no meio paciencia, no fim satisfação",
+  "A preguiça enfraquece, a motivação enobrece",
+  "Hora de descansar com um sentimento de missão cumprida",
+  "Um peso de cada vez e logo voce estara superando todos os seus limites",
+  "O corpo alcança o que a mente acredita",
+  "Coloque a preguiça pra correr",
+  "O que nao se faz, nao se aprende",
+  "Pernas bambas, falta de ar e transpiração, é sexo? NAO! ACADEMIA!",
+  "hora do wheyzinhuuuuuuuuuuu hmmmmmmmmmmmmm",
+];
+
 const xingamentos = [
   "Pau no cu",
   "Filho da puta",
@@ -8,7 +25,7 @@ const xingamentos = [
   "Inimigo do humor",
   "Bafo de bunda",
   "Metralhadora de bosta",
-  "Cara de cú com caiâmbra",
+  "Cara de cú com caimbra",
   "Eleitor do Bolsonaro",
   "Calvo",
   "Lixo",
@@ -56,6 +73,11 @@ module.exports = class SimpleCommandsService {
         } seu ${xingamentos[Math.floor(Math.random() * xingamentos.length)]}`
       );
     }
+    if (msg == "!motivacao") {
+      await chat.sendMessage(
+        `${motivacao[Math.floor(Math.random() * motivacao.length)]}`
+      );
+    }
     if (msg == "!comandos") {
       await chat.sendMessage(
         "Disponiveis:\n!salve\n!foto\n!uuui\n!horas\n!beach"
@@ -63,8 +85,3 @@ module.exports = class SimpleCommandsService {
     }
   }
 };
-console.log(
-  `${
-    nomesXingamentos[Math.floor(Math.random() * nomesXingamentos.length)]
-  } seu ${xingamentos[Math.floor(Math.random() * xingamentos.length)]}`
-);
